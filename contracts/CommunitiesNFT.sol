@@ -69,7 +69,7 @@ contract CommunitiesNFT is ERC721URIStorage, Ownable {
   /// @dev 
   
   function bondingCurve() internal returns (uint256) {
-    uint256 amountToMint = 2 * _tokenIds.current() + 9;
+    uint256 amountToMint = 2 * _tokenIds.current() + 10;
     emit LogAmountToMint(amountToMint);
     return amountToMint;  
   }
@@ -81,6 +81,7 @@ contract CommunitiesNFT is ERC721URIStorage, Ownable {
     require(!paused);
     require(_tokenIds.current() + bondingCurve() <= maxSupply, "You can only mint:");
     require(whitelisted[msg.sender], "No ");
+    
     uint256 mintAmount = bondingCurve(); 
 
     // If not the owner, must pay the fee and must be whitelisted.
