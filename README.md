@@ -82,6 +82,10 @@ or
 4. Mint some Nfts with the new account
 5. Each time you mint, the amount of Nfts will increment by the bonding cruve.
 
+## Screencast link
+
+
+
 ## TODO
 
 - Implement the ERC1155 standard

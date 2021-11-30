@@ -18,7 +18,7 @@ const App = () => {
 
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
-git 
+ 
     if (!ethereum) {
       console.log("Make sure you have metamask!");
       return;
