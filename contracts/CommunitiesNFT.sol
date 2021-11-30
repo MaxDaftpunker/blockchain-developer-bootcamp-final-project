@@ -63,11 +63,11 @@ contract CommunitiesNFT is ERC721, ERC721URIStorage, Ownable {
   mapping(address => bool) public whitelisted;
 
   
-  /// @notice contract constructor. Takes parameters and passes them to the inherited ERC721 contract constructor
-  /// @param _name the name of the contract
-  /// @param _symbol the symbol that contract tokens will be represented by
+  /// @notice Contract constructor. Takes parameters and passes them to the inherited ERC721 contract constructor
+  /// @param _name The name of the contract
+  /// @param _symbol The symbol that contract tokens will be represented by
   constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {
-    // Increments the counter so that it starts with Id:1
+    // Increments the counter so that it starts with Id=1
       _tokenIds.increment();
   }
 
@@ -79,19 +79,19 @@ contract CommunitiesNFT is ERC721, ERC721URIStorage, Ownable {
     return words[rand];
   }
 
-  /// @param input string input which is hashed to generate the 'random' number.
+  /// @param input String input which is hashed to generate the 'random' number.
   /// @return A random integer
   function random(string memory input) internal pure returns (uint256) {
     return uint256(keccak256(abi.encodePacked(input)));
   }
 
-  /// @notice Returns the amount of NFTs to minte  
-  /// @dev 
+  /// @notice 
+  /// @return The amount of nfts that have been minted
   function tokensMinted() public view returns (uint256) {
     return _tokenIds.current();
   }
 
-  /// @notice Returns the amount of NFTs to mint
+  /// @notice Returns the amount of NFTs that can be minted at this point on the "curve"
   /// @dev The curve formula can be improved to be logarithmic e.g 
   function bondingCurve() internal returns (uint256) {
     uint256 amountToMint = 2 * countMinting + 4;
