@@ -39,7 +39,7 @@ contract CommunitiesNFT is ERC721, ERC721URIStorage, Ownable {
   uint256 private countMinting = 0;
 
   string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='black' /><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
-  string[] words = ["Daft Punk", "Tom Petty", "Arcade Fire", "Real Estate", "My Morning Jacket", "Local Natives", "Fruits Bats", "Vampire Weekend",  "Pixies", "Portugal the Man"];
+  string[] words = ["Daft Punk", "Tom Petty", "Arcade Fire", "Real Estate", "My Morning Jacket", "Local Natives", "Fruits Bats", "Vampire Weekend",  "Pixies", "Portugal the Man", "The Wars on Drugs", "Tame Imapala", "The National", "Bombay Bicycle Club", "Wilco", "The Shins"];
   
 
   /// @notice Event to be emitted after minting all the NFTs
@@ -91,9 +91,8 @@ contract CommunitiesNFT is ERC721, ERC721URIStorage, Ownable {
     return _tokenIds.current();
   }
 
-  /// @notice Returns the amount of NFTs to minte  
-  /// @dev 
-  
+  /// @notice Returns the amount of NFTs to mint
+  /// @dev The curve formula can be improved to be logarithmic e.g 
   function bondingCurve() internal returns (uint256) {
     uint256 amountToMint = 2 * countMinting + 4;
     emit LogAmountToMint(amountToMint);
@@ -101,9 +100,8 @@ contract CommunitiesNFT is ERC721, ERC721URIStorage, Ownable {
   }
     
   
-  /// @notice Mint a quantity of ERC721 determined by the bonding curve.  All are randomly selected.  
-  /// @dev currently does not accept payment
-  /// @dev this function creates and stores the tokens URI. This is a JSON string constisting of name, description and image fields. The image is a BASE64 encoded SVG. Finally The whole JSON metadata string is BASE64 encoded and mapped to the tokenId.
+  /// @notice Mint a quantity of ERC721 determined by the bonding curve. All are randomly selected.  
+  /// @dev This function creates and stores the tokens URI. This is a JSON string constisting of name, the image is a BASE64 encoded SVG. Finally the whole JSON metadata string is BASE64 encoded and mapped to the tokenId.
   function mint() public payable {
     uint256 mintAmount = bondingCurve();
     uint256 newItemId = _tokenIds.current(); 
@@ -144,7 +142,6 @@ contract CommunitiesNFT is ERC721, ERC721URIStorage, Ownable {
     );
     
     
-    /// For
     for (uint256 i = 1; i <= mintAmount; i++) {
       newItemId = _tokenIds.current();
 
@@ -164,7 +161,6 @@ contract CommunitiesNFT is ERC721, ERC721URIStorage, Ownable {
       emit NewNFTMinted(msg.sender, newItemId);
     }
 
-    
     emit finishTheMinting(msg.sender, mintAmount);
     
     countMinting += 1;  

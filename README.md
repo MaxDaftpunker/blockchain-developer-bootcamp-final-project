@@ -60,13 +60,16 @@ Create a .env file in the projects root directory and add the following:
 Deploy the contract
 
 - `truffle migrate --network rinkeby --reset`
+
 or
+
 - `truffle migrate --network ropsten --reset`
 
 
 ### Environment variables:
 
 -MNEMONIC=
+
 -INFURA_URL=
 
 ## Simple workflow
@@ -82,7 +85,7 @@ or
 ## TODO
 
 - Implement the ERC1155 standard
-- Implement a Generative NFT and 
+- Implement a Generative NFT and allow the community owner to imput a the name of the communitie on the Nft.
 - 
 
 

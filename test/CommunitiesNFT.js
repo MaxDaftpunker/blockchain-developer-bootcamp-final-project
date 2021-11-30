@@ -54,17 +54,17 @@ contract("CommunitiesNFT", (accounts) => {
       assert.isTrue(await contract.whitelisted(minter), "the account was not added to the whitelist");
     });
 
-    it("should be able to mint a whitelisted account", async () => {      
+    it("should be able to mint with a whitelisted account", async () => {      
       const minter = accounts[1];      
       await contract.mint({ from: minter, value: fee});
       const tokenId = await contract.tokensMinted();
-      assert.isTrue(tokenId > 1, "No ");
+      assert.isTrue(tokenId > 1, "the account was not able to mint");
     });
 
     it("should be able to remove a whitelisted account", async () => {      
       const minter = accounts[1];
       const isNotWhite = await contract.removeWhitelistUser(minter);
-      assert.isTrue(isNotWhite.receipt.status, "Not OK");
+      assert.isTrue(isNotWhite.receipt.status, "Not ");
     });
 
     it("should confirm a that user were remove from the whitelist", async () => {   

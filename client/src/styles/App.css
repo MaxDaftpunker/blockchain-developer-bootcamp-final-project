@@ -61,6 +61,13 @@
   margin-right: 15px;
 }
 
+.whitelist-button {
+  background: -webkit-linear-gradient(left, #2e00d6, #ff6fdf);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+  margin-right: 15px;
+}
+
 .opensea-button {
   background-color: rgb(32, 129, 226);
 }
@@ -88,6 +95,19 @@
   font-size: 16px;
   font-weight: bold;
 }
+
+
+.input {
+  margin-bottom: 20px;
+  height: 35px;
+  border: 0;
+  width: 300px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
 
 /* KeyFrames */
 @-webkit-keyframes gradient-animation {
@@ -123,3 +143,4 @@
     background-position: 0% 50%;
   }
 }
+
