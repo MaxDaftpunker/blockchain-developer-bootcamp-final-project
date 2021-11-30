@@ -9,7 +9,7 @@ const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 
 
-const CONTRACT_ADDRESS = "0xd01e1B190CfA5E7310CbB9A8E9ce362fE9AbCeD4";
+const CONTRACT_ADDRESS = "0x813E8e6B36c37eBC236b58c51d3594F7579284dd";
 
 const App = () => {
 
@@ -82,7 +82,7 @@ const App = () => {
         // Catch the event 
           connectedContract.on("NewNFTMinted", (from, tokenId) => {
           console.log(from, tokenId.toNumber())
-          alert(`Here's the link: https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`)
+          alert(`You mint an NFTs, here's the link: https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`)
         });
 
         console.log("Setup event listener!")
@@ -110,7 +110,7 @@ const App = () => {
         console.log("Mining...please wait.")
         await nftTxn.wait();
         console.log(nftTxn);
-        console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
+        console.log(`Mined, see transaction: https://ropsten.etherscan.io/tx/${nftTxn.hash}`);
 
       } else {
         console.log("Ethereum object doesn't exist!");
@@ -135,7 +135,7 @@ const App = () => {
         console.log("Whitelisting...please wait.")
         await nftTxn.wait();
         console.log(nftTxn);
-        console.log(`Whitelisted: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
+        console.log(`Whitelisted: https://ropsten.etherscan.io/tx/${nftTxn.hash}`);
 
       } else {
         console.log("Ethereum object doesn't exist!");
@@ -160,7 +160,7 @@ const App = () => {
         console.log("Removing...please wait.")
         await nftTxn.wait();
         console.log(nftTxn);
-        console.log(`Removed: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
+        console.log(`Removed: https://ropsten.etherscan.io/tx/${nftTxn.hash}`);
 
       } else {
         console.log("Ethereum object doesn't exist!");
@@ -209,7 +209,7 @@ const App = () => {
         <div className="header-container">
           <p className="header gradient-text">Communities NFTs</p>
           <p className="sub-text">
-            Each unique. Each beautiful. Discover your NFT today.
+           Mint NFTs for your community. Each unique. Each beautiful. Discover your NFT today.
           </p>
           {currentAccount === "" ? renderNotConnectedContainer() : renderMintUI()}
         </div>
